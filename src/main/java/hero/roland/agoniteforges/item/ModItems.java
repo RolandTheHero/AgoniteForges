@@ -39,7 +39,7 @@ public class ModItems {
     public static final Item RAW_AGONITE = register(ModItemIds.RAW_AGONITE, PainfulItem::new, new Item.Properties());
     public static final Item AGONITE_INGOT = register(ModItemIds.AGONITE_INGOT, PainfulItem::new, new Item.Properties());
 
-    public static final Item AGONITE_SWORD = register(ModItemIds.AGONITE_SWORD, Item::new, new Item.Properties().sword(ToolMaterial.NETHERITE, 0f, 0f));
+    public static final Item AGONITE_SWORD = register(ModItemIds.AGONITE_SWORD, AgoniteSwordItem::new, new Item.Properties().sword(ToolMaterial.NETHERITE, 0f, 0f));
 }
 
 class PainfulItem extends Item {
