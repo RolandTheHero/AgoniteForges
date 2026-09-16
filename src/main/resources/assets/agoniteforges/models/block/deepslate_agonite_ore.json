@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "agoniteforges:block/deepslate_agonite_ore"
+  }
+}

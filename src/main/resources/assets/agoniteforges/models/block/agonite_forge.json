@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "agoniteforges:block/agonite_forge_front",
+    "side": "agoniteforges:block/agonite_forge_side",
+    "top": "agoniteforges:block/agonite_forge_top",
+    "bottom": "agoniteforges:block/agonite_forge_bottom"
+  }
+}

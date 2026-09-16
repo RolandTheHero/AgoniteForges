@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ACA",
+    "ABA",
+    "AAA"
+  ],
+  "key": {
+    "A": "agoniteforges:agonite_ingot",
+    "B": "minecraft:blast_furnace",
+    "C": "minecraft:crafting_table"
+  },
+  "result": {
+    "id": "agoniteforges:agonite_forge",
+    "count": 1
+  }
+}

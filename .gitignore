@@ -1,0 +1,26 @@
+### IntelliJ IDEA ###
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+### Gradle ###
+.gradle/
+build/
+.gradle-test-kit/
+gradle-app.setting
+!gradle-wrapper.jar
+
+### Java / Compiled Files ###
+*.class
+*.log
+hs_err_pid*
+
+### Minecraft / Fabric Specific ###
+run/
+fabric.properties
+crash-reports/
+logs/
+debug/
+.cache

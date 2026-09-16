@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "agoniteforges",
+  "version": "${version}",
+  "name": "Agonite Forges",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/agoniteforges/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "hero.roland.agoniteforges.client.AgoniteForgesDataGenerator"
+    ],
+    "client": [
+      "hero.roland.agoniteforges.client.AgoniteForgesClient"
+    ],
+    "main": [
+      "hero.roland.agoniteforges.AgoniteForges"
+    ]
+  },
+  "mixins": [
+    "agoniteforges.mixins.json",
+    {
+      "config": "agoniteforges.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}

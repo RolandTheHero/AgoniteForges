@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "experience": 1,
+  "cookingtime": 600,
+  "ingredient": "agoniteforges:raw_agonite",
+  "result": {
+    "id": "agoniteforges:agonite_ingot"
+  }
+}

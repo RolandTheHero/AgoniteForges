@@ -1,0 +1,19 @@
+{
+  "type": "agoniteforges:forging",
+  "experience": 10,
+  "cookingtime": 600,
+  "pattern": [
+    "CAC",
+    "CAC",
+    "CBC"
+  ],
+  "key": {
+    "A": "agoniteforges:agonite_ingot",
+    "B": "minecraft:blaze_rod",
+    "C": "minecraft:fire_charge"
+  },
+  "result": {
+    "id": "agoniteforges:agonite_sword",
+    "count": 1
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/blast_furnace",
+  "textures": {
+    "front": "agoniteforges:block/agonite_forge_front_on",
+    "side": "agoniteforges:block/agonite_forge_side",
+    "top": "agoniteforges:block/agonite_forge_top",
+    "bottom": "agoniteforges:block/agonite_forge_bottom"
+  }
+}
