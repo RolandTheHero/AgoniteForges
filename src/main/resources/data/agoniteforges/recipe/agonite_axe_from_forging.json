@@ -3,17 +3,17 @@
   "experience": 10,
   "cookingtime": 600,
   "pattern": [
-    "AAA",
-    "CBC",
+    "AAC",
+    "ABC",
     "CBC"
   ],
   "key": {
     "A": "agoniteforges:agonite_ingot",
-    "B": "minecraft:bone",
-    "C": "minecraft:echo_shard"
+    "B": "minecraft:bamboo",
+    "C": "minecraft:vine"
   },
   "result": {
-    "id": "agoniteforges:agonite_pickaxe",
+    "id": "agoniteforges:agonite_axe",
     "count": 1
   }
 }

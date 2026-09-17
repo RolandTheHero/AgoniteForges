@@ -3,17 +3,18 @@
   "experience": 10,
   "cookingtime": 600,
   "pattern": [
-    "AAA",
-    "CBC",
-    "CBC"
+    "CAC",
+    "DBD",
+    "DBD"
   ],
   "key": {
     "A": "agoniteforges:agonite_ingot",
-    "B": "minecraft:bone",
-    "C": "minecraft:echo_shard"
+    "B": "minecraft:breeze_rod",
+    "C": "minecraft:wind_charge",
+    "D": "minecraft:feather"
   },
   "result": {
-    "id": "agoniteforges:agonite_pickaxe",
+    "id": "agoniteforges:agonite_shovel",
     "count": 1
   }
 }
