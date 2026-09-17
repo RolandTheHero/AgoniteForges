@@ -27,6 +27,8 @@ public class ModItems {
             });
         CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.COMBAT)
             .register((creativeTab) -> creativeTab.accept(ModItems.AGONITE_SWORD));
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.TOOLS_AND_UTILITIES)
+            .register((creativeTab) -> creativeTab.accept(ModItems.AGONITE_PICKAXE));
     }
     public static Item register(ResourceKey<Item> itemKey, Function<Item.Properties, Item> itemFactory, Item.Properties settings) {
         // Create the item instance.
@@ -40,6 +42,7 @@ public class ModItems {
     public static final Item AGONITE_INGOT = register(ModItemIds.AGONITE_INGOT, PainfulItem::new, new Item.Properties());
 
     public static final Item AGONITE_SWORD = register(ModItemIds.AGONITE_SWORD, AgoniteSwordItem::new, new Item.Properties().sword(ToolMaterial.NETHERITE, 0f, 0f));
+    public static final Item AGONITE_PICKAXE = register(ModItemIds.AGONITE_PICKAXE, AgonitePickaxeItem::new, new Item.Properties().pickaxe(ToolMaterial.NETHERITE, 0f, 0f));
 }
 
 class PainfulItem extends Item {

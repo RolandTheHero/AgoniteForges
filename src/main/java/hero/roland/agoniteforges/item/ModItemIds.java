@@ -15,4 +15,5 @@ public class ModItemIds {
     public static final ResourceKey<Item> AGONITE_INGOT = create("agonite_ingot");
 
     public static final ResourceKey<Item> AGONITE_SWORD = create("agonite_sword");
+    public static final ResourceKey<Item> AGONITE_PICKAXE = create("agonite_pickaxe");
 }

@@ -57,8 +57,8 @@ public class AgoniteSwordItem extends Item {
                 entity.getZ(),
                 SoundEvents.FIRECHARGE_USE,
                 SoundSource.PLAYERS,
-                1.0F,
-                1.0F
+                0.5f,
+                1.0f
             );
             level.addFreshEntity(fireball);
         }
