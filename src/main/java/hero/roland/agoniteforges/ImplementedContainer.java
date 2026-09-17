@@ -92,7 +92,7 @@ public interface ImplementedContainer extends Container {
     }
 
     /**
-     * Replaces the current stack in an container slot with the provided stack.
+     * Replaces the current stack in a container slot with the provided stack.
      * @param slot  The container slot of which to replace the item stack.
      * @param stack The replacing item stack. If the stack is too big for
      *              this container ({@link Container#getMaxStackSize()}),

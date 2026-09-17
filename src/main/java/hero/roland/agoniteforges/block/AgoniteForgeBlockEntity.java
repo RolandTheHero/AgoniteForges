@@ -27,7 +27,9 @@ import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import org.jspecify.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class AgoniteForgeBlockEntity extends BlockEntity implements ImplementedContainer, MenuProvider {
     private final NonNullList<ItemStack> items = NonNullList.withSize(11, ItemStack.EMPTY);
@@ -75,12 +77,6 @@ public class AgoniteForgeBlockEntity extends BlockEntity implements ImplementedC
         return new AgoniteForgeMenu(containerId, inventory, this, ContainerLevelAccess.create(level, worldPosition));
     }
 
-    @Override
-    public void setItem(int slot, ItemStack stack) {
-        this.items.set(slot, stack);
-        setChanged();
-    }
-
     public float getProgressArrow() { return progressArrow; }
     public float getFuelRemaining() { return fuelRemaining; }
 
@@ -103,6 +99,14 @@ public class AgoniteForgeBlockEntity extends BlockEntity implements ImplementedC
         }
         RecipeHolder<AgoniteForgeRecipe> recipeHolder = maybeRecipe.get();
         AgoniteForgeRecipe recipe = recipeHolder.value();
+        ItemStack recipeOutput = recipe.assemble(recipeInput);
+        ItemStack itemAtOutput = getItem(10);
+        if (!itemAtOutput.isEmpty()) {
+            if (!ItemStack.isSameItemSameComponents(itemAtOutput, recipeOutput)
+                || itemAtOutput.getCount() + recipeOutput.getCount() > itemAtOutput.getMaxStackSize()) {
+                return;
+            }
+        }
         int cookingTime = recipe.cookingTime();
         if (fuelRemaining <= 0) {
             ItemStack fuel = items.get(9);
@@ -117,22 +121,29 @@ public class AgoniteForgeBlockEntity extends BlockEntity implements ImplementedC
         progressArrow += 1f / cookingTime;
         if (progressArrow >= 1) {
             progressArrow = 0;
-            setItem(10, recipe.assemble(recipeInput));
+            consumeRecipeItems(recipe);
+            addItem(10, recipeOutput);
             storedXp += recipe.experience();
-            clearGrid();
         }
     }
 
-    private void clearGrid() {
-        items.set(0, ItemStack.EMPTY);
-        items.set(1, ItemStack.EMPTY);
-        items.set(2, ItemStack.EMPTY);
-        items.set(3, ItemStack.EMPTY);
-        items.set(4, ItemStack.EMPTY);
-        items.set(5, ItemStack.EMPTY);
-        items.set(6, ItemStack.EMPTY);
-        items.set(7, ItemStack.EMPTY);
-        items.set(8, ItemStack.EMPTY);
+    private void addItem(int slot, ItemStack itemStack) {
+        ItemStack currentItemStack = getItem(slot);
+        if (currentItemStack.getItem().equals(itemStack.getItem())) {
+            itemStack.setCount(currentItemStack.getCount() + itemStack.getCount());
+            return;
+        }
+        setItem(slot, itemStack);
+    }
+
+    private void consumeRecipeItems(AgoniteForgeRecipe recipe) {
+        List<String> pattern = recipe.pattern().pattern();
+        String patternFull = String.join("", pattern);
+        for (int i = 0; i < patternFull.length(); i++) {
+            char c = patternFull.charAt(i);
+            if (c == ' ') continue;
+            removeItem(i, 1);
+        }
     }
 
     public static void tick(Level level, BlockPos pos, BlockState state, AgoniteForgeBlockEntity entity) {
